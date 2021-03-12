@@ -2,13 +2,13 @@ package fr.isen.sebastien_SILVANO.androiderestaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMainBinding
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMealBinding
+import android.widget.TextView
+import org.json.JSONObject
 
 class MealActivity : AppCompatActivity(){
 
@@ -33,20 +33,13 @@ class MealActivity : AppCompatActivity(){
 
 
 
-        //SET LAYOUT TEXTS
+        //SET TITLE TEXT
 
         //get meal name
         Message(info).log("Getting meal name...")
         val mealName = intent.getStringExtra("meal")
+        findViewById<TextView>(R.id.meal_title).text = mealName
         Message(info).log("Got \"$mealName\".")
-
-        //title
-        val title = findViewById<TextView>(R.id.meal_title)
-        title.text = mealName
-
-        //content
-        val content = findViewById<TextView>(R.id.meal_content_text)
-        content.text = mealName
 
 
 
@@ -55,21 +48,35 @@ class MealActivity : AppCompatActivity(){
         //create request
         val queue = Volley.newRequestQueue(this)
 
+        //prepare request
+        val jsonRequest = JSONObject()
+        jsonRequest.put("id_shop", 1)
+
         //Request a string response from the provided URL.
-        val stringRequest = StringRequest(
+        var content_text = ""
+        val stringRequest = JsonObjectRequest(
             Request.Method.POST,
             "http://test.api.catering.bluecodegames.com/menu",
-            Response.Listener<String> { response ->
+            jsonRequest,
+            Response.Listener { response ->
 
-                //write content
-                content.text = "Response is: ${response.substring(0, 500)}"
-                Message(info).log("Response is: ${response.substring(0, 500)}")
+                if(response == null){
+                    Error(info).log(false, "Got null response.")
+                }else {
+                    Message(info).log("Response is: ${response.toString()}")
+                    content_text = "Response is : ${response.toString()}"
+                }
             },
             Response.ErrorListener { _ ->
-                content.text = "Unable to get request"
+
+                //error case
+                content_text = "Unable to get request"
                 Error(info).log(false, "Unable to get request from \"http://test.api.catering.bluecodegames.com/menu\".")
             }
         )
+
+        //set content text
+        findViewById<TextView>(R.id.meal_content_text).text = content_text
 
         //Add the request to the RequestQueue.
         queue.add(stringRequest)
@@ -78,10 +85,5 @@ class MealActivity : AppCompatActivity(){
 
         //debug
         Message(info).log("Entering in Meal : $mealName.")
-
-
-
-        //binding
-        setContentView(R.layout.lyo_meal)
     }
 }

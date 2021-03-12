@@ -1,10 +1,8 @@
 package fr.isen.sebastien_SILVANO.androiderestaurant
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMealListBinding
