@@ -1,22 +1,35 @@
 package fr.isen.sebastien_SILVANO.androiderestaurant
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
+import android.widget.ImageView
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMealBinding
 import android.widget.TextView
-import org.json.JSONObject
+import com.squareup.picasso.Picasso
+import com.synnapps.carouselview.CarouselView
+import com.synnapps.carouselview.ImageListener
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.CodeInfo
+import fr.isen.sebastien_SILVANO.androiderestaurant.mealInfo.MealInfoDetails
+
+
 
 class MealActivity : AppCompatActivity(){
+
+
 
     //binding
     private lateinit var binding : LyoMealBinding
 
-    //info
-    private val info : CodeInfo = CodeInfo("Meal","MealActivity.kt")
+    //debug info
+    private val info : CodeInfo = CodeInfo("Meal", "MealActivity.kt")
+
+    //meal
+    private lateinit var meal : MealInfoDetails
+
+    //cart
+    private var cartCount = 0
+    private var totalPrice = 0
 
 
 
@@ -27,63 +40,60 @@ class MealActivity : AppCompatActivity(){
 
 
 
+        //LAYOUT
+
         //init binding instance
         binding = LyoMealBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
 
-        //SET TITLE TEXT
+        //DISPLAY
 
-        //get meal name
-        Message(info).log("Getting meal name...")
-        val mealName = intent.getStringExtra("meal")
-        findViewById<TextView>(R.id.meal_title).text = mealName
-        Message(info).log("Got \"$mealName\".")
+        //get meal info
+        meal = intent.extras?.get("meal") as MealInfoDetails
 
+        //set texts
+        findViewById<TextView>(R.id.meal_title).text = meal.name
+        findViewById<TextView>(R.id.meal_content_text).text = meal.ingr.map{ it.name }.joinToString()
+        findViewById<TextView>(R.id.meal_price_per_unit).text = meal.prices[0].value + "€/unit"
+        updateCartCount()
 
-
-        //GET GOOGLE REQUEST (Volley)
-
-        //create request
-        val queue = Volley.newRequestQueue(this)
-
-        //prepare request
-        val jsonRequest = JSONObject()
-        jsonRequest.put("id_shop", 1)
-
-        //Request a string response from the provided URL.
-        var content_text = ""
-        val stringRequest = JsonObjectRequest(
-            Request.Method.POST,
-            "http://test.api.catering.bluecodegames.com/menu",
-            jsonRequest,
-            Response.Listener { response ->
-
-                if(response == null){
-                    Error(info).log(false, "Got null response.")
+        //Carousel
+        var sampleImages = arrayOf(meal.picts?.get(0))
+        val carouselView = findViewById<CarouselView>(R.id.meal_pict);
+        var imageListener: ImageListener =
+            ImageListener { position, imageView ->
+                if(meal.picts[0].isNullOrEmpty()){
+                    Picasso.get().load("@drawable/no_picture").into(imageView)
                 }else {
-                    Message(info).log("Response is: ${response.toString()}")
-                    content_text = "Response is : ${response.toString()}"
+                    Picasso.get().load(meal.picts[position]).into(imageView)
                 }
-            },
-            Response.ErrorListener { _ ->
-
-                //error case
-                content_text = "Unable to get request"
-                Error(info).log(false, "Unable to get request from \"http://test.api.catering.bluecodegames.com/menu\".")
             }
-        )
-
-        //set content text
-        findViewById<TextView>(R.id.meal_content_text).text = content_text
-
-        //Add the request to the RequestQueue.
-        queue.add(stringRequest)
+        carouselView.pageCount = sampleImages.size;
+        carouselView.setImageListener(imageListener);
 
 
 
-        //debug
-        Message(info).log("Entering in Meal : $mealName.")
+        //CART COUNT
+
+        //add
+        binding.addToCart.setOnClickListener{
+            cartCount++
+            updateCartCount()
+        }
+
+        //remove
+        binding.removeFromCart.setOnClickListener{
+            if(cartCount > 0){
+                cartCount--
+            }
+            updateCartCount()
+        }
+    }
+
+    private fun updateCartCount(){
+        totalPrice = cartCount * meal.prices[0].value.toInt()
+        findViewById<TextView>(R.id.meal_price_total).text = "Total : ${totalPrice}€"
     }
 }

@@ -6,5 +6,9 @@
     <string name="desserts">DESSERTS</string>
     <string name="order">Order &gt;</string>
     <string name="defaultText">Default Text</string>
-    <string name="addToCart">Add to cart</string>
+    <string name="addToCart">Add  to  cart</string>
+    <string name="removeFromCart">Remove from  cart</string>
+    <string name="BLEScan">BLE Scan</string>
+    <string name="BLEScan_pauseTitle">Scanning...</string>
+    <string name="BLEScan_playTitle">Launch scan</string>
 </resources>

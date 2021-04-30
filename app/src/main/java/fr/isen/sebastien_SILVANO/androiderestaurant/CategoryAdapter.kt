@@ -3,23 +3,30 @@ package fr.isen.sebastien_SILVANO.androiderestaurant
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoRecViewCellBinding
-
-
-//binding
-private lateinit var binding : LyoRecViewCellBinding
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.CodeInfo
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.Message
+import fr.isen.sebastien_SILVANO.androiderestaurant.mealInfo.MealInfoDetails
 
 
 
 class CategoryAdapter(
-    private val categories : List<String>,
-    private val onItemClickListener:(String) -> Unit
+        private val productInfo : List<MealInfoDetails>,
+        private val onItemClickListener:(MealInfoDetails) -> Unit
 ) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
-    //info
-    private var info : CodeInfo = CodeInfo("RecyclerViewCell","CategoryAdapter.kt")
+
+
+    //debug info
+    private val info :CodeInfo = CodeInfo("CategoryAdapter", "CategoryAdapter.kt")
+
+    //binding
+    private lateinit var binding : LyoRecViewCellBinding
+
 
 
     //init
@@ -44,26 +51,26 @@ class CategoryAdapter(
     class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cellTitle   : TextView = view.findViewById(R.id.cell_title)
         val cellContent : TextView = view.findViewById(R.id.cell_content)
+        val cellPict    : ImageView = view.findViewById(R.id.cell_pict)
     }
 
 
     //utilities
-    override fun getItemCount() = categories.size
+    override fun getItemCount() = productInfo.size
 
 
 
     //events
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.cellTitle.text   = categories[position]
-        holder.cellContent.text = categories[position]
+        holder.cellTitle.text   = productInfo[position].name
+        holder.cellContent.text = productInfo[position].ingr.map{ it.name }.joinToString(separator = ", ")
+        if(productInfo[position].picts.isEmpty()) {
+            Picasso.get().load("@drawable/no_picture").into(holder.cellPict)
+        }else{
+            ;
+        }
         holder.cellTitle.setOnClickListener(){
-
-            //debug
-            info.setFunctionName("onBindViewHolder")
-            Message(info).log("Clicked on \"${categories[position]}\".")
-
-            //call click function
-            onItemClickListener(categories[position])
+            onItemClickListener(productInfo[position])
         }
     }
 }

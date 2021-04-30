@@ -43,6 +43,11 @@ dependencies {
     //GSON API
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    //Picasso & Carousel API
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.synnapps:carouselview:0.1.5'
+
+    //Default
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.2.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'

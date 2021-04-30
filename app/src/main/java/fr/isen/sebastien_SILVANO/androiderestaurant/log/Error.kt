@@ -1,7 +1,6 @@
-package fr.isen.sebastien_SILVANO.androiderestaurant
+package fr.isen.sebastien_SILVANO.androiderestaurant.log
 
 import android.annotation.SuppressLint
-import android.util.Log
 
 class Error(info: CodeInfo) : CodeInfo(
     info.getActorName(),
