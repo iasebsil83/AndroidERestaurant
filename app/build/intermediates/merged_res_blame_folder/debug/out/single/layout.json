@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_rec_view_cell.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_rec_view_cell.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_ble_scan.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_ble_scan.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_ble_device_info.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_ble_device_info.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_ble_rec_view_cell.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_ble_rec_view_cell.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_meal_list.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_meal_list.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_meal.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_meal.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_main.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_main.xml"
+    }
+]

@@ -166,11 +166,28 @@ class BLEScanActivity : AppCompatActivity() {
             super.onScanResult(callbackType, result)
             info.setFunctionName("BLEScanCallBack")
 
-            //add the device
-            BLEScanList.add(result)
-            Message(info).log("Added BLE device [${BLEScanList.last().device.address}].")
+            //filter : do not get null-named devices
+            if( !result.scanRecord?.deviceName.isNullOrEmpty() ) {
 
-            BLEUpdateRecView()
+                //check if device already exists in mutable list
+                var deviceFound = false
+                BLEScanList.forEachIndexed { idx, sr ->
+
+                    //device already registered
+                    if (sr.device.address == result.device.address) {
+                        BLEScanList[idx] = result
+                        deviceFound = true
+                    }
+                }
+
+                //add device
+                if (!deviceFound) {
+                    BLEScanList.add(result)
+                }
+
+                //update display
+                BLEUpdateRecView()
+            }
         }
     }
 
@@ -182,6 +199,9 @@ class BLEScanActivity : AppCompatActivity() {
         binding.bleScanTitle.text = getString(R.string.BLEScan_pauseTitle);
         binding.bleLaunchScan.setImageResource(R.drawable.ic_pause_button)
         binding.bleScanProgress.visibility = View.VISIBLE
+
+        //reset scan list
+        BLEScanList = mutableListOf()
 
         //launch scanner
         BLEScanner?.let { scanner ->
@@ -229,7 +249,7 @@ class BLEScanActivity : AppCompatActivity() {
                 BLEScanList
         ) { result ->
             val intent = Intent(this, BLEDeviceInfoActivity::class.java)
-            intent.putExtra("BLEDeviceInfo", result.toString())
+            intent.putExtra("BLEDeviceInfo", result.device)
             startActivity(intent)
         }
     }

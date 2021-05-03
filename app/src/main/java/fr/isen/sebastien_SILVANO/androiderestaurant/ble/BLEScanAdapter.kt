@@ -59,8 +59,8 @@ class BLEScanAdapter(
 
     //events
     override fun onBindViewHolder(holder: BLEScanViewHolder, position: Int) {
-        holder.cellTitle.text   = scanList[position].device.address
-        holder.cellContent.text = scanList[position].toString()
+        holder.cellTitle.text   = scanList[position].scanRecord?.deviceName
+        holder.cellContent.text = scanList[position].scanRecord?.toString()
         holder.cellTitle.setOnClickListener(){
             onItemClickListener(scanList[position])
         }

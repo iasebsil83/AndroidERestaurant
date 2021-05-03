@@ -1,14 +1,30 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
+
+    <!-- utilities -->
+    <string name="defaultText">Default Text</string>
+
+    <!-- main -->
     <string name="droidrestaurant">DROID RESTAURANT</string>
     <string name="entrees">ENTREES</string>
     <string name="plats">PLATS</string>
     <string name="desserts">DESSERTS</string>
     <string name="order">Order &gt;</string>
-    <string name="defaultText">Default Text</string>
+
+    <!-- cart -->
     <string name="addToCart">Add  to  cart</string>
     <string name="removeFromCart">Remove from  cart</string>
+
+    <!-- BLE -->
     <string name="BLEScan">BLE Scan</string>
     <string name="BLEScan_pauseTitle">Scanning...</string>
     <string name="BLEScan_playTitle">Launch scan</string>
+    <string name="BLE_connect">Connect</string>
+
+    <!-- BLE status -->
+    <string name="ble_device_status">Status : %1$s</string>
+    <string name="ble_device_status_connecting">connecting...</string>
+    <string name="ble_device_status_connected">connected</string>
+    <string name="ble_device_status_disconnected">disconnected</string>
+    <string name="ble_device_status_disconnecting">disconnecting...</string>
 </resources>
