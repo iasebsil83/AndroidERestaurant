@@ -49,6 +49,7 @@ class BLEScanAdapter(
     class BLEScanViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cellTitle   : TextView = view.findViewById(R.id.ble_cell_title)
         val cellContent : TextView = view.findViewById(R.id.ble_cell_content)
+        val cellCase    : View     = view.findViewById(R.id.ble_cell_bg)
     }
 
 
@@ -60,8 +61,8 @@ class BLEScanAdapter(
     //events
     override fun onBindViewHolder(holder: BLEScanViewHolder, position: Int) {
         holder.cellTitle.text   = scanList[position].scanRecord?.deviceName
-        holder.cellContent.text = scanList[position].scanRecord?.toString()
-        holder.cellTitle.setOnClickListener(){
+        holder.cellContent.text = scanList[position].device.address
+        holder.cellCase.setOnClickListener(){
             onItemClickListener(scanList[position])
         }
     }

@@ -60,7 +60,6 @@ class BLEDeviceInfoActivity : AppCompatActivity() {
         } else {
             findViewById<TextView>(R.id.ble_device_name).text = "Undefined"
         }
-        findViewById<TextView>(R.id.ble_device_info).text = device?.address.toString()
 
         //display connection status
         binding.bleDeviceStatus.text = getString(

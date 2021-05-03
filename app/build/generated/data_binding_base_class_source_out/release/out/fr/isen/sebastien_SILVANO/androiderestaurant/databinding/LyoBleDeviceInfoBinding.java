@@ -4,7 +4,7 @@ package fr.isen.sebastien_SILVANO.androiderestaurant.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,10 +20,10 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button bleDeviceConnect;
+  public final ImageView bleConnectionBg;
 
   @NonNull
-  public final TextView bleDeviceInfo;
+  public final View bleConnectionBottomBg;
 
   @NonNull
   public final ConstraintLayout bleDeviceInfoGlobal;
@@ -34,16 +34,20 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
   @NonNull
   public final TextView bleDeviceStatus;
 
+  @NonNull
+  public final View bleDeviceStatusBg;
+
   private LyoBleDeviceInfoBinding(@NonNull ConstraintLayout rootView,
-      @NonNull Button bleDeviceConnect, @NonNull TextView bleDeviceInfo,
+      @NonNull ImageView bleConnectionBg, @NonNull View bleConnectionBottomBg,
       @NonNull ConstraintLayout bleDeviceInfoGlobal, @NonNull TextView bleDeviceName,
-      @NonNull TextView bleDeviceStatus) {
+      @NonNull TextView bleDeviceStatus, @NonNull View bleDeviceStatusBg) {
     this.rootView = rootView;
-    this.bleDeviceConnect = bleDeviceConnect;
-    this.bleDeviceInfo = bleDeviceInfo;
+    this.bleConnectionBg = bleConnectionBg;
+    this.bleConnectionBottomBg = bleConnectionBottomBg;
     this.bleDeviceInfoGlobal = bleDeviceInfoGlobal;
     this.bleDeviceName = bleDeviceName;
     this.bleDeviceStatus = bleDeviceStatus;
+    this.bleDeviceStatusBg = bleDeviceStatusBg;
   }
 
   @Override
@@ -73,15 +77,15 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ble_device_connect;
-      Button bleDeviceConnect = rootView.findViewById(id);
-      if (bleDeviceConnect == null) {
+      id = R.id.ble_connection_bg;
+      ImageView bleConnectionBg = rootView.findViewById(id);
+      if (bleConnectionBg == null) {
         break missingId;
       }
 
-      id = R.id.ble_device_info;
-      TextView bleDeviceInfo = rootView.findViewById(id);
-      if (bleDeviceInfo == null) {
+      id = R.id.ble_connection_bottom_bg;
+      View bleConnectionBottomBg = rootView.findViewById(id);
+      if (bleConnectionBottomBg == null) {
         break missingId;
       }
 
@@ -99,8 +103,15 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
         break missingId;
       }
 
-      return new LyoBleDeviceInfoBinding((ConstraintLayout) rootView, bleDeviceConnect,
-          bleDeviceInfo, bleDeviceInfoGlobal, bleDeviceName, bleDeviceStatus);
+      id = R.id.ble_device_status_bg;
+      View bleDeviceStatusBg = rootView.findViewById(id);
+      if (bleDeviceStatusBg == null) {
+        break missingId;
+      }
+
+      return new LyoBleDeviceInfoBinding((ConstraintLayout) rootView, bleConnectionBg,
+          bleConnectionBottomBg, bleDeviceInfoGlobal, bleDeviceName, bleDeviceStatus,
+          bleDeviceStatusBg);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -49,9 +49,10 @@ class CategoryAdapter(
 
     //viewHolder
     class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val cellTitle   : TextView = view.findViewById(R.id.cell_title)
-        val cellContent : TextView = view.findViewById(R.id.cell_content)
+        val cellTitle   : TextView  = view.findViewById(R.id.cell_title)
+        val cellContent : TextView  = view.findViewById(R.id.cell_content)
         val cellPict    : ImageView = view.findViewById(R.id.cell_pict)
+        val cellCase    : View      = view.findViewById(R.id.cell_bg)
     }
 
 
@@ -67,9 +68,11 @@ class CategoryAdapter(
         if(productInfo[position].picts.isEmpty()) {
             Picasso.get().load("@drawable/no_picture").into(holder.cellPict)
         }else{
-            ;
+            Picasso.get().load(
+                    productInfo[position].picts[0]
+            ).into(holder.cellPict)
         }
-        holder.cellTitle.setOnClickListener(){
+        holder.cellCase.setOnClickListener(){
             onItemClickListener(productInfo[position])
         }
     }

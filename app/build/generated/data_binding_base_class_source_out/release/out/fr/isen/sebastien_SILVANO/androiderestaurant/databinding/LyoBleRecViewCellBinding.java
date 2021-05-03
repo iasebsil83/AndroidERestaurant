@@ -19,10 +19,13 @@ public final class LyoBleRecViewCellBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView bleCellContent;
+  public final View bleCellBg;
 
   @NonNull
-  public final ConstraintLayout bleCellFrame;
+  public final View bleCellBg2;
+
+  @NonNull
+  public final TextView bleCellContent;
 
   @NonNull
   public final TextView bleCellTitle;
@@ -30,12 +33,13 @@ public final class LyoBleRecViewCellBinding implements ViewBinding {
   @NonNull
   public final ConstraintLayout bleRecViewCellGlobal;
 
-  private LyoBleRecViewCellBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView bleCellContent, @NonNull ConstraintLayout bleCellFrame,
-      @NonNull TextView bleCellTitle, @NonNull ConstraintLayout bleRecViewCellGlobal) {
+  private LyoBleRecViewCellBinding(@NonNull ConstraintLayout rootView, @NonNull View bleCellBg,
+      @NonNull View bleCellBg2, @NonNull TextView bleCellContent, @NonNull TextView bleCellTitle,
+      @NonNull ConstraintLayout bleRecViewCellGlobal) {
     this.rootView = rootView;
+    this.bleCellBg = bleCellBg;
+    this.bleCellBg2 = bleCellBg2;
     this.bleCellContent = bleCellContent;
-    this.bleCellFrame = bleCellFrame;
     this.bleCellTitle = bleCellTitle;
     this.bleRecViewCellGlobal = bleRecViewCellGlobal;
   }
@@ -67,15 +71,21 @@ public final class LyoBleRecViewCellBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ble_cell_content;
-      TextView bleCellContent = rootView.findViewById(id);
-      if (bleCellContent == null) {
+      id = R.id.ble_cell_bg;
+      View bleCellBg = rootView.findViewById(id);
+      if (bleCellBg == null) {
         break missingId;
       }
 
-      id = R.id.ble_cell_frame;
-      ConstraintLayout bleCellFrame = rootView.findViewById(id);
-      if (bleCellFrame == null) {
+      id = R.id.ble_cell_bg_2;
+      View bleCellBg2 = rootView.findViewById(id);
+      if (bleCellBg2 == null) {
+        break missingId;
+      }
+
+      id = R.id.ble_cell_content;
+      TextView bleCellContent = rootView.findViewById(id);
+      if (bleCellContent == null) {
         break missingId;
       }
 
@@ -87,8 +97,8 @@ public final class LyoBleRecViewCellBinding implements ViewBinding {
 
       ConstraintLayout bleRecViewCellGlobal = (ConstraintLayout) rootView;
 
-      return new LyoBleRecViewCellBinding((ConstraintLayout) rootView, bleCellContent, bleCellFrame,
-          bleCellTitle, bleRecViewCellGlobal);
+      return new LyoBleRecViewCellBinding((ConstraintLayout) rootView, bleCellBg, bleCellBg2,
+          bleCellContent, bleCellTitle, bleRecViewCellGlobal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

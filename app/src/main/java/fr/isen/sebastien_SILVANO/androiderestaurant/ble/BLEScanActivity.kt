@@ -123,6 +123,7 @@ class BLEScanActivity : AppCompatActivity() {
         BLEAdapter = BLEManager.adapter
         BLEavailable = ( packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE) )
         BLEScanner = BLEAdapter?.bluetoothLeScanner
+        BLEHandler = Handler()
     }
 
 

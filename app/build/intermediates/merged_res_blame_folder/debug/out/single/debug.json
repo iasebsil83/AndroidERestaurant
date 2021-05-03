@@ -12,12 +12,12 @@
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable_ic_play_button.xml.flat",
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/drawable/ic_play_button.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable_ic_pause_button.xml.flat",
@@ -26,6 +26,10 @@
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.png.flat",
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable_ble_scan_bg2.jpg.flat",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/drawable/ble_scan_bg2.jpg"
     },
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
@@ -80,6 +84,14 @@
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable_ble_cell.png.flat",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/drawable/ble_cell.png"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable_ble_connection_bg.jpg.flat",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/drawable/ble_connection_bg.jpg"
+    },
+    {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
     },
@@ -90,6 +102,10 @@
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable_ble_scan_bg.jpg.flat",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/drawable/ble_scan_bg.jpg"
     },
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
