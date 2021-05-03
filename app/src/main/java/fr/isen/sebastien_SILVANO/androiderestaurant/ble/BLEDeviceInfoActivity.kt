@@ -64,8 +64,8 @@ class BLEDeviceInfoActivity : AppCompatActivity() {
 
         //display connection status
         binding.bleDeviceStatus.text = getString(
-                R.string.ble_device_status,
-                getString(R.string.ble_device_status_connecting)
+                      R.string.ble_device_status,
+            getString(R.string.ble_device_status_connecting)
         )
 
 
@@ -107,7 +107,10 @@ class BLEDeviceInfoActivity : AppCompatActivity() {
     private fun connectionStateChange(newState: Int, gatt: BluetoothGatt?){
         BLEConnectionStates.getBLEConnectionStateFromState(newState)?.let {
             runOnUiThread {
-                binding.bleDeviceStatus.text = getString(R.string.ble_device_status, getString(it.text))
+                binding.bleDeviceStatus.text = getString(
+                    R.string.ble_device_status,
+                    getString(it.text)
+                )
             }
         }
     }

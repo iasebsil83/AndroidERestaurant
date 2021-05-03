@@ -120,13 +120,9 @@ class BLEScanActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     private fun setBLEVariables() {
         BLEManager = getSystemService(BluetoothManager::class.java)
-        BLEAdapter = BLEManager?.adapter
-        BLEavailable = (
-            packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE) &&
-            BLEManager != null
-        )
+        BLEAdapter = BLEManager.adapter
+        BLEavailable = ( packageManager.hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE) )
         BLEScanner = BLEAdapter?.bluetoothLeScanner
-        BLEHandler = Handler()
     }
 
 
@@ -196,7 +192,7 @@ class BLEScanActivity : AppCompatActivity() {
     //start - stop
     private fun BLEStartScan() {
         //display
-        binding.bleScanTitle.text = getString(R.string.BLEScan_pauseTitle);
+        binding.bleScanTitle.text = getString(R.string.ble_scan_pause_title);
         binding.bleLaunchScan.setImageResource(R.drawable.ic_pause_button)
         binding.bleScanProgress.visibility = View.VISIBLE
 
@@ -223,7 +219,7 @@ class BLEScanActivity : AppCompatActivity() {
 
     private fun BLEStopScan(){
         //display
-        binding.bleScanTitle.text = getString(R.string.BLEScan_playTitle);
+        binding.bleScanTitle.text = getString(R.string.ble_scan_play_title);
         binding.bleLaunchScan.setImageResource(R.drawable.ic_play_button)
         binding.bleScanProgress.visibility = View.INVISIBLE
 

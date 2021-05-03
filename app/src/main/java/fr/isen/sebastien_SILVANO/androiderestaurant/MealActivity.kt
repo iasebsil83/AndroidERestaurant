@@ -60,7 +60,7 @@ class MealActivity : AppCompatActivity(){
         updateCartCount()
 
         //Carousel
-        var sampleImages = arrayOf(meal.picts?.get(0))
+        var sampleImages = arrayOf(meal.picts[0])
         val carouselView = findViewById<CarouselView>(R.id.meal_pict);
         var imageListener: ImageListener =
             ImageListener { position, imageView ->

@@ -16,10 +16,10 @@
     <string name="removeFromCart">Remove from  cart</string>
 
     <!-- BLE -->
-    <string name="BLEScan">BLE Scan</string>
-    <string name="BLEScan_pauseTitle">Scanning...</string>
-    <string name="BLEScan_playTitle">Launch scan</string>
-    <string name="BLE_connect">Connect</string>
+    <string name="ble_scan">BLE Scan</string>
+    <string name="ble_scan_pause_title">Scanning...</string>
+    <string name="ble_scan_play_title">Launch scan</string>
+    <string name="ble_connect">Connect</string>
 
     <!-- BLE status -->
     <string name="ble_device_status">Status : %1$s</string>
