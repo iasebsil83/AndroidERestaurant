@@ -7,6 +7,7 @@ import android.widget.Toast
 import fr.isen.sebastien_SILVANO.androiderestaurant.ble.BLEScanActivity
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMainBinding
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.CodeInfo
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.Error
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.Message
 import kotlin.jvm.java as java
 
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity(){
 
     //debug info
     private val info : CodeInfo = CodeInfo("Main", "MainActivity.kt")
+    private val msg  : Message  = Message(info)
+    private val err  : Error    = Error  (info)
 
 
 
@@ -35,6 +38,8 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         info.setFunctionName("onCreate")
+
+
 
         // LAYOUT
 
@@ -88,6 +93,6 @@ class MainActivity : AppCompatActivity(){
         info.setFunctionName("onDestroy")
 
         //debug
-        Message(info).log("Destroyed main activity.")
+        msg.log("Destroyed main activity.")
     }
 }

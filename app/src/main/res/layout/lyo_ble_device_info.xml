@@ -15,7 +15,7 @@
         android:background="#F0A732"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/ble_device_status"
         app:layout_constraintVertical_bias="0.0" />
@@ -23,14 +23,14 @@
     <View
         android:id="@+id/ble_connection_bg"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="250dp"
         android:background="@drawable/ble_connection_bg"
         app:layout_constraintBottom_toBottomOf="@+id/ble_connection_bottom_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268" />
+        app:layout_constraintVertical_bias="0.105" />
 
     <TextView
         android:id="@+id/ble_device_name"
@@ -44,10 +44,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ble_device_status"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.346" />
+        app:layout_constraintVertical_bias="0.148" />
 
     <TextView
         android:id="@+id/ble_device_status"
@@ -64,10 +63,9 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.086" />
 
     <View
         android:id="@+id/ble_device_status_bg"
@@ -79,12 +77,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/ble_device_status"
         app:layout_constraintTop_toTopOf="@+id/ble_device_status"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ble_services_rec_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

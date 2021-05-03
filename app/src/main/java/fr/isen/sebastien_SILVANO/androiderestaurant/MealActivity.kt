@@ -1,18 +1,17 @@
 package fr.isen.sebastien_SILVANO.androiderestaurant
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMealBinding
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.CodeInfo
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.Error
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.Message
 import fr.isen.sebastien_SILVANO.androiderestaurant.mealInfo.MealInfoDetails
-import java.lang.Exception
+
 
 
 class MealActivity : AppCompatActivity(){
@@ -24,6 +23,8 @@ class MealActivity : AppCompatActivity(){
 
     //debug info
     private val info : CodeInfo = CodeInfo("Meal", "MealActivity.kt")
+    private val msg  : Message  = Message(info)
+    private val err  : Error    = Error  (info)
 
     //meal
     private lateinit var meal : MealInfoDetails
@@ -38,7 +39,6 @@ class MealActivity : AppCompatActivity(){
     //init
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        info.setFunctionName("onCreate")
 
 
 
@@ -57,8 +57,8 @@ class MealActivity : AppCompatActivity(){
         unitPrice = meal.prices[0].value.toFloatOrNull()
 
         //set texts
-        findViewById<TextView>(R.id.meal_title).text = meal.name
-        findViewById<TextView>(R.id.meal_content_text).text = meal.ingr.map{ it.name }.joinToString()
+        findViewById<TextView>(R.id.meal_title).text          = meal.name
+        findViewById<TextView>(R.id.meal_content_text).text   = meal.ingr.map{ it.name }.joinToString()
         findViewById<TextView>(R.id.meal_price_per_unit).text = meal.prices[0].value + "€/unit"
         updateCartCount()
 

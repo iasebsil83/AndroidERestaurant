@@ -3,6 +3,7 @@
 
     <!-- utilities -->
     <string name="defaultText">Default Text</string>
+    <string name="popup_placeholder">Write something</string>
 
     <!-- main -->
     <string name="droidrestaurant">DROID RESTAURANT</string>
@@ -27,4 +28,11 @@
     <string name="ble_device_status_connected">Connected</string>
     <string name="ble_device_status_disconnected">Disconnected</string>
     <string name="ble_device_status_disconnecting">Disconnecting...</string>
+
+    <!-- BLE services -->
+    <string name="ble_service_characteristic_title">Characteristic</string>
+    <string name="ble_service_properties_title">Properties</string>
+    <string name="ble_service_read_button_title">Read</string>
+    <string name="ble_service_write_button_title">Write</string>
+    <string name="ble_service_notify_button_title">Notify</string>
 </resources>

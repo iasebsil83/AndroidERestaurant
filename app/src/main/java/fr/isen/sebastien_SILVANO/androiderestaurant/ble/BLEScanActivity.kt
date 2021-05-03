@@ -50,6 +50,8 @@ class BLEScanActivity : AppCompatActivity() {
 
     //class info
     private val info : CodeInfo = CodeInfo("BLEScan", "ble/BLEScanActivity.kt")
+    private val msg  : Message  = Message(info)
+    private val err  : Error    = Error  (info)
 
     //BLE info
     private var isScanning : Boolean = false
@@ -107,7 +109,7 @@ class BLEScanActivity : AppCompatActivity() {
         //check BLE availability
         if(!BLEavailable){
             Toast.makeText(this, "BLE is not available for this device", Toast.LENGTH_SHORT).show()
-            Error(info).log(false, "BLE is not available for this device.")
+            err.log(false, "BLE is not available for this device.")
         }else{
             //debug
             Toast.makeText(this, "Ble is available.", Toast.LENGTH_SHORT).show()

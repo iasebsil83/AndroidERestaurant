@@ -29,6 +29,8 @@ class MealListActivity : AppCompatActivity(){
 
     //debug info
     private val info :CodeInfo = CodeInfo("MealList", "MealListActivity.kt")
+    private val msg  : Message  = Message(info)
+    private val err  : Error    = Error  (info)
 
     //binding
     private lateinit var binding :LyoMealListBinding
@@ -38,20 +40,20 @@ class MealListActivity : AppCompatActivity(){
 
     //meals
     private var meals :MealInfo = MealInfo(
-            listOf(
-                    MealInfoCategory(
-                            "UndefinedCategory",
-                            listOf(
-                                    MealInfoDetails(
-                                            -1,
-                                            "UndefinedMeal",
-                                            listOf("UndefinedPicture"),
-                                            listOf( Price     (-1, "NoPrice", "UndefinedSize") ),
-                                            listOf( Ingredient(-1, "UndefinedIngredient"   ) )
-                                    )
-                            )
+        listOf(
+            MealInfoCategory(
+                "UndefinedCategory",
+                listOf(
+                    MealInfoDetails(
+                        -1,
+                        "UndefinedMeal",
+                        listOf("UndefinedPicture"),
+                        listOf( Price     (-1, "NoPrice", "UndefinedSize") ),
+                        listOf( Ingredient(-1, "UndefinedIngredient"   ) )
                     )
+                )
             )
+        )
     )
 
 
@@ -65,7 +67,7 @@ class MealListActivity : AppCompatActivity(){
         info.setFunctionName("onCreate")
 
         //debug
-        Message(info).log("Entering in MealList.")
+        msg.log("Entering in meal list.")
 
 
 
@@ -84,7 +86,7 @@ class MealListActivity : AppCompatActivity(){
             CATEGORY_ENTREE  -> findViewById<TextView>(R.id.meal_list_title_text).text = "Entrées"
             CATEGORY_PLAT    -> findViewById<TextView>(R.id.meal_list_title_text).text = "Plats"
             CATEGORY_DESSERT -> findViewById<TextView>(R.id.meal_list_title_text).text = "Desserts"
-            else -> Error(info).log(false, "Invalid category number received in extra.")
+            else -> err.log(false, "Invalid category number received in extra.")
         }
 
 
@@ -111,7 +113,7 @@ class MealListActivity : AppCompatActivity(){
 
             //response received
             Response.Listener { response ->
-                Message(info).log("Response is: ${response.toString()}")
+                msg.log("Response is: ${response.toString()}")
 
                 //get raw json data
                 meals = Gson().fromJson(response.toString(), MealInfo::class.java)
@@ -129,7 +131,7 @@ class MealListActivity : AppCompatActivity(){
 
             //error case
             Response.ErrorListener { _ ->
-                Error(info).log(false, "Unable to get request from \"http://test.api.catering.bluecodegames.com/menu\".")
+                err.log(false, "Unable to get request from \"http://test.api.catering.bluecodegames.com/menu\".")
             }
         )
 

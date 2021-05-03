@@ -10,6 +10,7 @@ import fr.isen.sebastien_SILVANO.androiderestaurant.R
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoBleRecViewCellBinding
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.CodeInfo
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.Message
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.Error
 
 
 
@@ -24,7 +25,9 @@ class BLEScanAdapter(
 ) : RecyclerView.Adapter<BLEScanAdapter.BLEScanViewHolder>() {
 
     //info
-    private var info : CodeInfo = CodeInfo("BLEScanAdapter", "ble/BLEScanAdapter.kt")
+    private val info : CodeInfo = CodeInfo("BLEScanAdapter", "ble/BLEScanAdapter.kt")
+    private val msg  : Message  = Message(info)
+    private val err  : Error    = Error  (info)
 
 
     //init
@@ -32,14 +35,14 @@ class BLEScanAdapter(
 
         //debug
         info.setFunctionName("onCreateViewHolder")
-        Message(info).log("Created RecyclerViewCell.")
+        msg.log("Created RecyclerViewCell.")
 
         return BLEScanViewHolder(
-                LyoBleRecViewCellBinding.inflate(
-                        LayoutInflater.from(parent.context),
-                        parent,
-                        false
-                ).root
+            LyoBleRecViewCellBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            ).root
         )
     }
 

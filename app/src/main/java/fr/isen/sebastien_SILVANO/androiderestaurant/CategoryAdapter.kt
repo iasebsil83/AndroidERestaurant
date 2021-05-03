@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoRecViewCellBinding
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.CodeInfo
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.Error
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.Message
 import fr.isen.sebastien_SILVANO.androiderestaurant.mealInfo.MealInfoDetails
 
@@ -23,6 +24,8 @@ class CategoryAdapter(
 
     //debug info
     private val info :CodeInfo = CodeInfo("CategoryAdapter", "CategoryAdapter.kt")
+    private val msg  : Message  = Message(info)
+    private val err  : Error = Error  (info)
 
     //binding
     private lateinit var binding : LyoRecViewCellBinding
@@ -34,7 +37,6 @@ class CategoryAdapter(
 
         //debug
         info.setFunctionName("onCreateViewHolder")
-        Message(info).log("Created RecyclerViewCell.")
 
         return CategoryViewHolder(
             LyoRecViewCellBinding.inflate(

@@ -1,7 +1,15 @@
 [
     {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/popup_write.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/popup_write.xml"
+    },
+    {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_rec_view_cell.xml",
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_rec_view_cell.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ble_service_rec_view_cell.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/ble_service_rec_view_cell.xml"
     },
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_ble_scan.xml",
@@ -10,6 +18,10 @@
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_ble_device_info.xml",
         "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/lyo_ble_device_info.xml"
+    },
+    {
+        "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/ble_service_characteristic_rec_view_cell.xml",
+        "source": "/home/minta/Documents/Android/AndroidERestaurant/app/src/main/res/layout/ble_service_characteristic_rec_view_cell.xml"
     },
     {
         "merged": "/home/minta/Documents/Android/AndroidERestaurant/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/lyo_ble_rec_view_cell.xml",
