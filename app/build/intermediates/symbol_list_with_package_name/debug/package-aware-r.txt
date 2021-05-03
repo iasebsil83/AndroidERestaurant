@@ -1365,6 +1365,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable black_border
 drawable ble_cell
 drawable ble_connection_bg
 drawable ble_scan_bg
@@ -1519,12 +1520,13 @@ id ble_scan_head
 id ble_scan_progress
 id ble_scan_rec_view
 id ble_scan_title
+id ble_services_rec_view
 id blocking
 id bottom
 id buttonPanel
 id cancel_button
+id cell_bg
 id cell_content
-id cell_frame
 id cell_pict
 id cell_title
 id center
@@ -1617,6 +1619,7 @@ id meal_list_content
 id meal_list_global
 id meal_list_rec_view
 id meal_list_title
+id meal_list_title_border
 id meal_list_title_text
 id meal_pict
 id meal_price_per_unit
@@ -1911,6 +1914,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 layout view_carousel
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
 string abc_action_bar_home_description

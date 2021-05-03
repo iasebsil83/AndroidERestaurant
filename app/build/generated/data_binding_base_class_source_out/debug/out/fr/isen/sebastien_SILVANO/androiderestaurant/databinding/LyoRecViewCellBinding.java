@@ -20,10 +20,10 @@ public final class LyoRecViewCellBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView cellContent;
+  public final View cellBg;
 
   @NonNull
-  public final ConstraintLayout cellFrame;
+  public final TextView cellContent;
 
   @NonNull
   public final ImageView cellPict;
@@ -34,12 +34,12 @@ public final class LyoRecViewCellBinding implements ViewBinding {
   @NonNull
   public final ConstraintLayout recViewCellGlobal;
 
-  private LyoRecViewCellBinding(@NonNull ConstraintLayout rootView, @NonNull TextView cellContent,
-      @NonNull ConstraintLayout cellFrame, @NonNull ImageView cellPict, @NonNull TextView cellTitle,
+  private LyoRecViewCellBinding(@NonNull ConstraintLayout rootView, @NonNull View cellBg,
+      @NonNull TextView cellContent, @NonNull ImageView cellPict, @NonNull TextView cellTitle,
       @NonNull ConstraintLayout recViewCellGlobal) {
     this.rootView = rootView;
+    this.cellBg = cellBg;
     this.cellContent = cellContent;
-    this.cellFrame = cellFrame;
     this.cellPict = cellPict;
     this.cellTitle = cellTitle;
     this.recViewCellGlobal = recViewCellGlobal;
@@ -72,15 +72,15 @@ public final class LyoRecViewCellBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.cell_content;
-      TextView cellContent = rootView.findViewById(id);
-      if (cellContent == null) {
+      id = R.id.cell_bg;
+      View cellBg = rootView.findViewById(id);
+      if (cellBg == null) {
         break missingId;
       }
 
-      id = R.id.cell_frame;
-      ConstraintLayout cellFrame = rootView.findViewById(id);
-      if (cellFrame == null) {
+      id = R.id.cell_content;
+      TextView cellContent = rootView.findViewById(id);
+      if (cellContent == null) {
         break missingId;
       }
 
@@ -98,8 +98,8 @@ public final class LyoRecViewCellBinding implements ViewBinding {
 
       ConstraintLayout recViewCellGlobal = (ConstraintLayout) rootView;
 
-      return new LyoRecViewCellBinding((ConstraintLayout) rootView, cellContent, cellFrame,
-          cellPict, cellTitle, recViewCellGlobal);
+      return new LyoRecViewCellBinding((ConstraintLayout) rootView, cellBg, cellContent, cellPict,
+          cellTitle, recViewCellGlobal);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

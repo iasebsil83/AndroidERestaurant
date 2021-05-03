@@ -240,6 +240,7 @@ class BLEScanActivity : AppCompatActivity() {
 
     // DISPLAY
     private fun BLEUpdateRecView(){
+
         //update recycler view
         binding.bleScanRecView.layoutManager = LinearLayoutManager(this)
         binding.bleScanRecView.adapter = BLEScanAdapter(
@@ -247,6 +248,7 @@ class BLEScanActivity : AppCompatActivity() {
         ) { result ->
             val intent = Intent(this, BLEDeviceInfoActivity::class.java)
             intent.putExtra("BLEDeviceInfo", result.device)
+            intent.putExtra("BLEDeviceName", result.scanRecord?.deviceName)
             startActivity(intent)
         }
     }

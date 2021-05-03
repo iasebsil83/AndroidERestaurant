@@ -23,8 +23,8 @@
 
     <!-- BLE status -->
     <string name="ble_device_status">Status : %1$s</string>
-    <string name="ble_device_status_connecting">connecting...</string>
-    <string name="ble_device_status_connected">connected</string>
-    <string name="ble_device_status_disconnected">disconnected</string>
-    <string name="ble_device_status_disconnecting">disconnecting...</string>
+    <string name="ble_device_status_connecting">Connecting...</string>
+    <string name="ble_device_status_connected">Connected</string>
+    <string name="ble_device_status_disconnected">Disconnected</string>
+    <string name="ble_device_status_disconnecting">Disconnecting...</string>
 </resources>

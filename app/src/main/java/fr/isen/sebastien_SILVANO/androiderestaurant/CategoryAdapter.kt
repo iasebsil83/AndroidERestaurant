@@ -56,6 +56,7 @@ class CategoryAdapter(
     }
 
 
+
     //utilities
     override fun getItemCount() = productInfo.size
 
@@ -65,9 +66,10 @@ class CategoryAdapter(
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.cellTitle.text   = productInfo[position].name
         holder.cellContent.text = productInfo[position].ingr.map{ it.name }.joinToString(separator = ", ")
-        if(productInfo[position].picts.isEmpty()) {
-            Picasso.get().load("@drawable/no_picture").into(holder.cellPict)
-        }else{
+        if(
+            !productInfo[position].picts.isNullOrEmpty() &&
+            !productInfo[position].picts[0].isNullOrEmpty()
+        ) {
             Picasso.get().load(
                     productInfo[position].picts[0]
             ).into(holder.cellPict)

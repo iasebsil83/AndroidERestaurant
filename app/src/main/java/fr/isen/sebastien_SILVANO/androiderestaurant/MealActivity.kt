@@ -10,8 +10,9 @@ import com.squareup.picasso.Picasso
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
 import fr.isen.sebastien_SILVANO.androiderestaurant.log.CodeInfo
+import fr.isen.sebastien_SILVANO.androiderestaurant.log.Message
 import fr.isen.sebastien_SILVANO.androiderestaurant.mealInfo.MealInfoDetails
-
+import java.lang.Exception
 
 
 class MealActivity : AppCompatActivity(){
@@ -29,7 +30,8 @@ class MealActivity : AppCompatActivity(){
 
     //cart
     private var cartCount = 0
-    private var totalPrice = 0
+    private var unitPrice : Float? = null
+    private var totalPrice : Float = 0F
 
 
 
@@ -52,6 +54,7 @@ class MealActivity : AppCompatActivity(){
 
         //get meal info
         meal = intent.extras?.get("meal") as MealInfoDetails
+        unitPrice = meal.prices[0].value.toFloatOrNull()
 
         //set texts
         findViewById<TextView>(R.id.meal_title).text = meal.name
@@ -64,14 +67,15 @@ class MealActivity : AppCompatActivity(){
         val carouselView = findViewById<CarouselView>(R.id.meal_pict);
         var imageListener: ImageListener =
             ImageListener { position, imageView ->
-                if(meal.picts[0].isNullOrEmpty()){
-                    Picasso.get().load("@drawable/no_picture").into(imageView)
-                }else {
-                    Picasso.get().load(meal.picts[position]).into(imageView)
+                if(
+                    !meal.picts.isNullOrEmpty() &&
+                    !meal.picts[position].isNullOrEmpty()
+                ){
+                    Picasso.get().load( meal.picts[position] ).into(imageView)
                 }
             }
         carouselView.pageCount = sampleImages.size;
-        carouselView.setImageListener(imageListener);
+        carouselView.setImageListener(imageListener)
 
 
 
@@ -93,7 +97,9 @@ class MealActivity : AppCompatActivity(){
     }
 
     private fun updateCartCount(){
-        totalPrice = cartCount * meal.prices[0].value.toInt()
+        if(unitPrice != null) {
+            totalPrice = cartCount * unitPrice!!
+        }
         findViewById<TextView>(R.id.meal_price_total).text = "Total : ${totalPrice}€"
     }
 }

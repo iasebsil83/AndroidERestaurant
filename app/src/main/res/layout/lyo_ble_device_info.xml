@@ -15,18 +15,22 @@
         android:background="#F0A732"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/ble_device_status" />
+        app:layout_constraintTop_toTopOf="@id/ble_device_status"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
+    <View
         android:id="@+id/ble_connection_bg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:background="@drawable/ble_connection_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/ble_connection_bottom_bg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ble_connection_bg" />
+        app:layout_constraintVertical_bias="0.268" />
 
     <TextView
         android:id="@+id/ble_device_name"
@@ -40,29 +44,30 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/ble_device_status"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405" />
+        app:layout_constraintVertical_bias="0.346" />
 
     <TextView
         android:id="@+id/ble_device_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#8188BBF1"
-        android:paddingLeft="20dp"
-        android:paddingTop="3dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="22dp"
+        android:paddingTop="5dp"
+        android:paddingRight="22dp"
         android:paddingBottom="5dp"
         android:text="@string/defaultText"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/ble_connection_bottom_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ble_connection_bg"
-        app:layout_constraintVertical_bias="0.307" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
 
     <View
         android:id="@+id/ble_device_status_bg"
@@ -71,9 +76,18 @@
         android:background="@drawable/ble_cell"
         app:layout_constraintBottom_toBottomOf="@+id/ble_device_status"
         app:layout_constraintEnd_toEndOf="@+id/ble_device_status"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/ble_device_status"
         app:layout_constraintTop_toTopOf="@+id/ble_device_status"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ble_services_rec_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ble_connection_bg" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,8 +55,9 @@ class BLEDeviceInfoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //display device info
-        if (device?.name == null) {
-            findViewById<TextView>(R.id.ble_device_name).text = device?.name
+        val name = intent.getStringExtra("BLEDeviceName")
+        if (name != null) {
+            findViewById<TextView>(R.id.ble_device_name).text = name
         } else {
             findViewById<TextView>(R.id.ble_device_name).text = "Undefined"
         }
