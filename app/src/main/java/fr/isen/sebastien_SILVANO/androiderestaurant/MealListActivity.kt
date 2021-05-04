@@ -27,6 +27,9 @@ class MealListActivity : AppCompatActivity(){
 
 
 
+
+
+
     //debug info
     private val info :CodeInfo = CodeInfo("MealList", "MealListActivity.kt")
     private val msg  : Message  = Message(info)

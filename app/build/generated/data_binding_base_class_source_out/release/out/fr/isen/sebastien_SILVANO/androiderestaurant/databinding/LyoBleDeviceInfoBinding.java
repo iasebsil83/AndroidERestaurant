@@ -4,11 +4,11 @@ package fr.isen.sebastien_SILVANO.androiderestaurant.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import fr.isen.sebastien_SILVANO.androiderestaurant.R;
 import java.lang.NullPointerException;
@@ -20,7 +20,7 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageView bleConnectionBg;
+  public final View bleConnectionBg;
 
   @NonNull
   public final View bleConnectionBottomBg;
@@ -37,10 +37,13 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
   @NonNull
   public final View bleDeviceStatusBg;
 
-  private LyoBleDeviceInfoBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ImageView bleConnectionBg, @NonNull View bleConnectionBottomBg,
-      @NonNull ConstraintLayout bleDeviceInfoGlobal, @NonNull TextView bleDeviceName,
-      @NonNull TextView bleDeviceStatus, @NonNull View bleDeviceStatusBg) {
+  @NonNull
+  public final RecyclerView bleServicesRecView;
+
+  private LyoBleDeviceInfoBinding(@NonNull ConstraintLayout rootView, @NonNull View bleConnectionBg,
+      @NonNull View bleConnectionBottomBg, @NonNull ConstraintLayout bleDeviceInfoGlobal,
+      @NonNull TextView bleDeviceName, @NonNull TextView bleDeviceStatus,
+      @NonNull View bleDeviceStatusBg, @NonNull RecyclerView bleServicesRecView) {
     this.rootView = rootView;
     this.bleConnectionBg = bleConnectionBg;
     this.bleConnectionBottomBg = bleConnectionBottomBg;
@@ -48,6 +51,7 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
     this.bleDeviceName = bleDeviceName;
     this.bleDeviceStatus = bleDeviceStatus;
     this.bleDeviceStatusBg = bleDeviceStatusBg;
+    this.bleServicesRecView = bleServicesRecView;
   }
 
   @Override
@@ -78,7 +82,7 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.ble_connection_bg;
-      ImageView bleConnectionBg = rootView.findViewById(id);
+      View bleConnectionBg = rootView.findViewById(id);
       if (bleConnectionBg == null) {
         break missingId;
       }
@@ -109,9 +113,15 @@ public final class LyoBleDeviceInfoBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.ble_services_rec_view;
+      RecyclerView bleServicesRecView = rootView.findViewById(id);
+      if (bleServicesRecView == null) {
+        break missingId;
+      }
+
       return new LyoBleDeviceInfoBinding((ConstraintLayout) rootView, bleConnectionBg,
           bleConnectionBottomBg, bleDeviceInfoGlobal, bleDeviceName, bleDeviceStatus,
-          bleDeviceStatusBg);
+          bleDeviceStatusBg, bleServicesRecView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

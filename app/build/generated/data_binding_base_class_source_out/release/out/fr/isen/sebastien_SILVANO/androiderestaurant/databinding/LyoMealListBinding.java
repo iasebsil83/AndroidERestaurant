@@ -36,18 +36,22 @@ public final class LyoMealListBinding implements ViewBinding {
   public final View mealListTitle;
 
   @NonNull
+  public final View mealListTitleBorder;
+
+  @NonNull
   public final TextView mealListTitleText;
 
   private LyoMealListBinding(@NonNull ConstraintLayout rootView, @NonNull Button mealListButton,
       @NonNull View mealListContent, @NonNull ConstraintLayout mealListGlobal,
       @NonNull RecyclerView mealListRecView, @NonNull View mealListTitle,
-      @NonNull TextView mealListTitleText) {
+      @NonNull View mealListTitleBorder, @NonNull TextView mealListTitleText) {
     this.rootView = rootView;
     this.mealListButton = mealListButton;
     this.mealListContent = mealListContent;
     this.mealListGlobal = mealListGlobal;
     this.mealListRecView = mealListRecView;
     this.mealListTitle = mealListTitle;
+    this.mealListTitleBorder = mealListTitleBorder;
     this.mealListTitleText = mealListTitleText;
   }
 
@@ -104,6 +108,12 @@ public final class LyoMealListBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.meal_list_title_border;
+      View mealListTitleBorder = rootView.findViewById(id);
+      if (mealListTitleBorder == null) {
+        break missingId;
+      }
+
       id = R.id.meal_list_title_text;
       TextView mealListTitleText = rootView.findViewById(id);
       if (mealListTitleText == null) {
@@ -111,7 +121,7 @@ public final class LyoMealListBinding implements ViewBinding {
       }
 
       return new LyoMealListBinding((ConstraintLayout) rootView, mealListButton, mealListContent,
-          mealListGlobal, mealListRecView, mealListTitle, mealListTitleText);
+          mealListGlobal, mealListRecView, mealListTitle, mealListTitleBorder, mealListTitleText);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

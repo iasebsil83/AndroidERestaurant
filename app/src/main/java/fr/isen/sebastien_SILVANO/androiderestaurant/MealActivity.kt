@@ -2,6 +2,7 @@ package fr.isen.sebastien_SILVANO.androiderestaurant
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMealBinding
 import android.widget.TextView
 import com.squareup.picasso.Picasso
@@ -30,9 +31,9 @@ class MealActivity : AppCompatActivity(){
     private lateinit var meal : MealInfoDetails
 
     //cart
-    private var cartCount = 0
-    private var unitPrice : Float? = null
-    private var totalPrice : Float = 0F
+    private var cartCount           = 0
+    private var unitPrice  : Float? = null
+    private var totalPrice : Float  = 0F
 
 
 
@@ -63,18 +64,15 @@ class MealActivity : AppCompatActivity(){
         updateCartCount()
 
         //Carousel
-        var sampleImages = arrayOf(meal.picts[0])
         val carouselView = findViewById<CarouselView>(R.id.meal_pict);
-        var imageListener: ImageListener =
-            ImageListener { position, imageView ->
-                if(
-                    !meal.picts.isNullOrEmpty() &&
-                    !meal.picts[position].isNullOrEmpty()
-                ){
-                    Picasso.get().load( meal.picts[position] ).into(imageView)
-                }
+        var imageListener: ImageListener = ImageListener { position, imageView ->
+            if(meal.picts[0].isNullOrEmpty()){
+                imageView?.setImageResource(R.drawable.no_picture)
+            } else {
+                Picasso.get().load(meal.picts[position]).into(imageView)
             }
-        carouselView.pageCount = sampleImages.size;
+        }
+        carouselView.pageCount = meal.picts.size;
         carouselView.setImageListener(imageListener)
 
 

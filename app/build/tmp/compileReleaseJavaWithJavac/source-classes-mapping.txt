@@ -1,5 +1,7 @@
 fr/isen/sebastien_SILVANO/androiderestaurant/BuildConfig.java
  fr.isen.sebastien_SILVANO.androiderestaurant.BuildConfig
+fr/isen/sebastien_SILVANO/androiderestaurant/databinding/PopupWriteBinding.java
+ fr.isen.sebastien_SILVANO.androiderestaurant.databinding.PopupWriteBinding
 fr/isen/sebastien_SILVANO/androiderestaurant/databinding/LyoMealBinding.java
  fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMealBinding
 fr/isen/sebastien_SILVANO/androiderestaurant/databinding/LyoMainBinding.java
@@ -8,9 +10,13 @@ fr/isen/sebastien_SILVANO/androiderestaurant/databinding/LyoBleRecViewCellBindin
  fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoBleRecViewCellBinding
 fr/isen/sebastien_SILVANO/androiderestaurant/databinding/LyoRecViewCellBinding.java
  fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoRecViewCellBinding
+fr/isen/sebastien_SILVANO/androiderestaurant/databinding/BleServiceCharacteristicRecViewCellBinding.java
+ fr.isen.sebastien_SILVANO.androiderestaurant.databinding.BleServiceCharacteristicRecViewCellBinding
 fr/isen/sebastien_SILVANO/androiderestaurant/databinding/LyoBleDeviceInfoBinding.java
  fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoBleDeviceInfoBinding
 fr/isen/sebastien_SILVANO/androiderestaurant/databinding/LyoMealListBinding.java
  fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoMealListBinding
 fr/isen/sebastien_SILVANO/androiderestaurant/databinding/LyoBleScanBinding.java
  fr.isen.sebastien_SILVANO.androiderestaurant.databinding.LyoBleScanBinding
+fr/isen/sebastien_SILVANO/androiderestaurant/databinding/BleServiceRecViewCellBinding.java
+ fr.isen.sebastien_SILVANO.androiderestaurant.databinding.BleServiceRecViewCellBinding
